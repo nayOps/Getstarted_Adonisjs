@@ -2,7 +2,6 @@
 
 @section('body')
 
-
 <h2>
         Modifier l'article {{ post.title }}
 </h2>
@@ -24,6 +23,21 @@
             type: 'textarea'
         })    
     </div>
+
+    <div claxss="mb-3">
+        <input {{ post.online ? 'checked' : '' }}  type="checkbox" class="form-check-input" name="online" id="online" value="">
+        <label for="online" class="form-check-label" > En ligne ?</label>
+    </div>
+
+    <div claxss="mb-3">
+        @!component('components/input', {
+            label: 'Demo', 
+            name : 'demo',
+            value: 'demo'
+        })
+    </div>
+
+
    
      
     <button type="submit" class="btn btn-primary">Save</button>

@@ -12,6 +12,9 @@ export default class Post extends BaseModel {
   public content: string
 
   @column()
+  public demo: string
+
+  @column()
   public online: boolean
 
   @column()

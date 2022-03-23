@@ -1,8 +1,10 @@
 @if(flashMessages.has('success'))
     <div class="alert alert-success">
         {{ flashMessages.get('success') }}
-    </div>
-@else
+    </div>  
+@endif
+
+@if(flashMessages.has('error'))
     <div class="alert alert-danger">
         {{ flashMessages.get('error') }}
     </div>
