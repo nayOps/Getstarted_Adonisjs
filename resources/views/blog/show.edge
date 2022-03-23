@@ -9,8 +9,23 @@
 
 <form action="" method="post" enctype="multipart/form-data">
 
-    <input type="text" class="form-control" name="title" id="" value="{{ post.title }}">
-
+    <div claxss="mb-3">
+        @!component('components/input', {
+            label: 'Titre', 
+            name : 'title',
+            value: post.title
+        })
+    </div>
+    <div claxss="mb-3">
+        @!component('components/input', {
+            label: 'Contenu', 
+            name : 'content',
+            value: post.content,
+            type: 'textarea'
+        })    
+    </div>
+   
+     
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
 

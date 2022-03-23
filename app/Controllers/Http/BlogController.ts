@@ -23,6 +23,13 @@ export default class BlogController {
          })
     }
 
+    async update ({params, request} : HttpContextContract) {
+        const post = await Post.findOrFail(params.id)
+        
+        return request.all()
+
+    }
+
 
 }
  
