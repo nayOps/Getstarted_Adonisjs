@@ -25,3 +25,4 @@ import Route from '@ioc:Adonis/Core/Route'
 // })
 
 Route.get('/', 'BlogController.index').as('home')
+Route.get('/article/:id', 'BlogController.show').as('posts.show')

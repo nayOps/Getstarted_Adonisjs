@@ -1,0 +1,18 @@
+@layout('layout')
+
+@section('body')
+
+
+<h2>
+        Modifier l'article {{ post.title }}
+</h2>
+
+<form action="" method="post" enctype="multipart/form-data">
+
+    <input type="text" class="form-control" name="title" id="" value="{{ post.title }}">
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+
+@endsection
