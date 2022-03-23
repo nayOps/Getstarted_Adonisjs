@@ -23,11 +23,13 @@ export default class BlogController {
          })
     }
 
-    async update ({params, request} : HttpContextContract) {
+    async update ({params, request, response, session} : HttpContextContract) {
         const post = await Post.findOrFail(params.id)
-        
-        return request.all()
-
+        post
+            .merge(request.all())
+            .save()
+        session.flash({success : "L'article a bien été save"})
+        return response.redirect().toRoute('home')
     }
 
 
