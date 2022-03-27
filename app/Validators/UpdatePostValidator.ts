@@ -29,7 +29,7 @@ export default class UpdatePostValidator {
     ]),
     content: schema.string({trim : true}),
     demo: schema.string({trim : true}),
-    online : schema.boolean()
+    online : schema.boolean.nullableAndOptional()
   })
 
   /**

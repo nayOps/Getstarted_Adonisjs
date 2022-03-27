@@ -14,8 +14,9 @@ export default class BlogController {
       return view.render('blog/index', { 
           posts
         })
-      
     }
+
+    
 
     async show ({params , view} : HttpContextContract) {
         const post = await Post.findOrFail(params.id)
@@ -24,18 +25,19 @@ export default class BlogController {
          })
     }
 
+
     async update ({params, request, response, session} : HttpContextContract) {
 
-        return await request.validate(updatePostValidator)
-        
+        // return await request.validate(updatePostValidator)
+
         const post = await Post.findOrFail(params.id)
+        const data = await request.validate(updatePostValidator)
         post
-            .merge(await request.validate(updatePostValidator))
+            .merge({...data, online: data.online || false})
             .save()
         session.flash({success : "L'article a bien été save"})
         return response.redirect().toRoute('home')
     }
-
 
 }
  
