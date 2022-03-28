@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Post from 'App/Models/Post'
 import updatePostValidator from 'App/Validators/updatePostValidator'
+import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class BlogController {
 
@@ -8,12 +9,15 @@ export default class BlogController {
      * context 
      */
 
-    async index({ view } : HttpContextContract) {
-      const posts = await Post.all()
+    async index({ view, request } : HttpContextContract) {
+    //   const posts = await Post.all()
+    const page = request.input('page', 1)
+    const posts = await Database.from(Post.table).paginate(page, 3)
       return view.render('blog/index', { 
           posts
         })
     }
+
 
     async create({view} : HttpContextContract) {
         const post = new Post()
@@ -59,5 +63,3 @@ export default class BlogController {
             .save()
     }
  }
- 
- 
