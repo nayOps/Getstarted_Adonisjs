@@ -29,3 +29,7 @@ Route.get('/article/new', 'BlogController.create').as('posts.create')
 Route.post('/article/new', 'BlogController.store')   
 Route.get('/article/:id', 'BlogController.show').as('posts.show')
 Route.post('/article/:id', 'BlogController.update')   
+Route.delete('/article/:id', 'BlogController.destroy')   
+
+
+

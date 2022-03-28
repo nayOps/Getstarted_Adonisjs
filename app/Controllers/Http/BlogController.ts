@@ -3,7 +3,7 @@ import Post from 'App/Models/Post'
 import updatePostValidator from 'App/Validators/updatePostValidator'
 
 export default class BlogController {
-    
+
     /**
      * context 
      */
@@ -44,6 +44,13 @@ export default class BlogController {
         return response.redirect().toRoute('home')
     }
 
+    async destroy ({params, response, session} : HttpContextContract){
+        const post = await Post.findOrFail(params.id)
+        await post.delete()
+        session.flash({success : "L'article a bien été supprimé"})
+        return response.redirect().toRoute('home')
+      }
+  
     private async handleRequest(params: HttpContextContract['params'], request : HttpContextContract['request']) {
         const post = params.id ? await Post.findOrFail(params.id) : new Post();
         const data = await request.validate(updatePostValidator)
