@@ -25,5 +25,7 @@ import Route from '@ioc:Adonis/Core/Route'
 // })
 
 Route.get('/', 'BlogController.index').as('home')
+Route.get('/article/new', 'BlogController.create').as('posts.create')
+Route.post('/article/new', 'BlogController.store')   
 Route.get('/article/:id', 'BlogController.show').as('posts.show')
 Route.post('/article/:id', 'BlogController.update')   
