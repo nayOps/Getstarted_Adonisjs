@@ -1,8 +1,8 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class SecuritiesController {
+export default class SecurityController {
 
-    async logon({view}: HttpContextContract){
+    async login({view}: HttpContextContract){
         return view.render('auth/login')
     }
 

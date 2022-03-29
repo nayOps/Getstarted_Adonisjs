@@ -1,0 +1,27 @@
+@layout('layout')
+
+
+@section('body')
+
+    <h2>Se connecter</h2>
+
+    <form action="" method="POST">
+        <div class="mb-3">
+            @!component('components/input',{
+                label : 'Email',
+                name: 'email',
+                type: 'email'
+            })
+        </div>
+        <div class="mb-3">
+            @!component('components/input',{
+                label : 'Mot de passe',
+                name: 'password',
+                type: 'password'
+            })
+        </div>
+
+        <button class="btn btn-primary"> Se connecter</button>
+    </form>
+
+@endsection
