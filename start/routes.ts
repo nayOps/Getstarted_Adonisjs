@@ -36,5 +36,8 @@ Route.delete('/article/:id', 'BlogController.destroy')
 }).middleware('auth')
 
 Route.get('/', 'BlogController.index').as('home')
+Route.get('/login', 'SecurityController.login').as('login')
+Route.post('/login', 'SecurityController.loging')
+
 
 
