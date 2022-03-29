@@ -1,13 +1,36 @@
 <form action="" method="post" enctype="multipart/form-data">
-
-    <div claxss="mb-3">
+    <div class="row mb-3" >
+        <div class="col">
+            @!component('components/input', {
+                label: 'Titre', 
+                name : 'title',
+                value: post.title
+            })
+        </div>
+        <div class="col">
+            @!component('components/input', {
+                label: 'Category', 
+                name : 'categoryId',
+                value: post.categoryId,
+                options: categories.reduce((acc, c) => ({...acc, [c.id]: c.name}), {})
+            })
+        </div>
+        <div class="col">
+            @!component('components/input', {
+                label: 'Titre', 
+                name : 'title',
+                value: post.title
+            })
+        </div>
+    </div>
+    <div class="mb-3">
         @!component('components/input', {
             label: 'Titre', 
             name : 'title',
             value: post.title
         })
     </div>
-    <div claxss="mb-3">
+    <div class="mb-3">
         @!component('components/input', {
             label: 'Contenu', 
             name : 'content',
@@ -16,12 +39,12 @@
         })    
     </div>
 
-    <div claxss="mb-3">
+    <div class="mb-3">
         <input {{ post.online ? 'checked' : '' }} name="online" type="checkbox" class="form-check-input" name="online" id="online" value="">
         <label for="online" class="form-check-label" > En ligne ?</label>
     </div>
 
-    <div claxss="mb-3">
+    <div class="mb-3">
         @!component('components/input', {
             label: 'Demo', 
             name : 'demo',

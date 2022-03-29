@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import Category from 'App/Models/Category'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -19,6 +20,12 @@ export default class Post extends BaseModel {
 
   @column()
   public thumbmail: string | null
+
+  @belongsTo(() => Category)
+  public category: BelongsTo<typeof Category>
+
+  @column()
+  public categoryId : number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime | null
